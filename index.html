@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!--<link rel="stylesheet" href="./Web-Pi/css/w3.css">-->
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-dark-grey.css">
+	<title>MyChronoGPS</title>
+</head>
+
+<body>
+
+	<!-- Navbar -->
+	<div class="w3-top">
+	<div class="w3-bar w3-black w3-card">
+		<a href="#" class="w3-bar-item w3-button w3-padding-large">Accueil</a>
+		<a href="#install" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Installation</a>
+		<a href="#usage" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Utilisation</a>
+	</div>
+	</div>
+
+	<div class="w3-container w3-center w3-padding-32">
+		<h1 class="w3-center">MyChronoGPS</h1>
+		<p class="w3-center"><b>MyChronoGPS</b> est un chronomètre automatique développé pour les <b>Raspberry Pi</b><p>
+	</div>
+
+	<!-- The Description Section -->
+	<div class="w3-container w3-content w3-center w3-padding-64" id="desc">
+		<h2 class="w3-wide w3-theme-d3">DESCRIPTION</h2>
+		<!--<p class="w3-opacity"><i>We love music</i></p>-->
+		<p class="w3-justify">
+		<b>MyChronoGPS</b> est un projet de chronomètre <b>GPS</b> fonctionnant sur une plateforme <b>Raspberry Pi</b></p>
+		
+		<h3 class="w3-theme-l1">Matériel</h3>
+		<p class="w3-justify">
+		<b>MyChronoGPS</b> peut être construit autour des <b>Raspberry Pi</b> 2,3,4 et zero.</p>
+		<p class="w3-justify">
+		Les RPi 3 et au delà ou zeroW v2 sont recommandés.</p>
+		<p class="w3-justify">
+		Le GPS à utiliser doit, pour l'instant, être de la famille <b>U-Blox</b>. Il doit pouvoir se connecter au Rpi via l'interface série ou USB</p>
+		<p class="w3-justify">
+		Il est recommandé d'utiliser un écran LCD HDMI de 3.5". Les écrans OLED et LCD 16x2 sont également supportés, ils peuvent venir en complément de l'écran HDMI.</p>
+	
+		<h3 class="w3-theme-l1">Logiciel</h3>
+		<p class="w3-justify">
+		Le logiciel se compose de 2 parties, <b>MyChronoGPS</b> proprement dit qui assure la fonction chronomètre et <b>MyChronoGPS-Web-Pi</b> qui assure toute la gestion des paramètres, des circuits, des sessions, etc.</p>
+		<p class="w3-justify">
+		<b>MyChronoGPS</b> est écrit en Python3 et <b>MyChronoGPS-Web-Pi</b> est écrit en HTML, CSS, Javascript et Python3 pour la partie Ajax.</p>
+		<p class="w3-justify">
+		Il est fortement recommandé d'installer un serveur Web, tel <b>Lighttpd</b>, sur le Raspberry pour pouvoir utiliser confortablement <b>MyChronoGPS-Web-Pi</b>.<p>
+	</div>
+
+
+  <!-- The Installation Section -->
+  <div class="w3-container w3-content w3-center w3-padding-64" id="install">
+    <h2 class="w3-wide w3-theme-d3">INSTALLATION</h2>
+
+	<p class="w3-theme-l1">
+	Préparation de la carte SD
+	</p>
+    <p class="w3-justify">
+	La préparation de la carte SD s'effectue avec l'outil <b>Pi Imager</b>.
+	</p>
+    <p class="w3-justify">
+	A partir d'un PC Windows, télécharger Raspberry Pi Imager et l'installer.
+	</p>
+    <p class="w3-justify">
+	A partir d'un Raspberry, Pi Imager est déjà installé.
+	</p>
+
+	<div class="w3-theme-l1">
+	Liste des actions
+	</div>
+    <div class="w3-justify">
+	- Lancez Pi Imager
+	</div>
+    <div class="w3-justify">
+	- Allez dans <b>Choisir l'OS</b> et choisissez l'OS selon le Raspberry destiné à accueillir MyChronoGPS (32-bit tout type de rpi, 64-bit rpi 3,4,400) de préférence avec l'environnement de bureau.
+	</div>
+    <div class="w3-justify">
+	- Allez dans les paramètres de Pi Imager et effectuez les actions
+	</div>
+    <div class="w3-justify" style="margin-left:15px">
+	- Cochez la case <b>Activer SSH</b>
+	</div>
+    <div class="w3-justify" style="margin-left:30px">
+		(La case Définir nom d'utilisateur et mot de passe est automatiquement cochée)
+	</div>
+    <div class="w3-justify" style="margin-left:15px">
+	- Laissez Nom d'utilisateur à <b>pi</b> et entrez le Mot de passe, <b>chrono</b> par exemple, notez le password.
+	</div>
+    <div class="w3-justify" style="margin-left:15px">
+	- Cochez la case Configurer le Wi-Fi et entrez les paramètres de votre réseau Wifi local.
+	</div>
+    <div class="w3-justify" style="margin-left:15px">
+	- Cochez la case Définir les réglages locaux et entrez votre zone géographique et le type de clavier.
+	</div>
+    <div class="w3-justify" style="margin-left:15px">
+	- Sauvegardez les paramètres.
+	</div>
+    <div class="w3-justify">
+	- Installez la carte SD dans le lecteur et allez dans <b>Choisir le Stockage</b>.
+	</div>
+    <div class="w3-justify" style="margin-left:30px">
+	Le lecteur est automatiquement sélectionné, s'il y en a plusieurs choisir le lecteur dans lequel la carte SD cible est installée.
+	</div>
+    <div class="w3-justify">
+	- Appuyez sur <b>Ecrire</b> et patientez jusqu'à la fin de l'écriture de la carte SD.
+	</div>
+    <div class="w3-justify">
+	- Retirez la carte SD et installez-là dans le Raspberry cible.
+	</div>
+
+	<p class="w3-theme-l1">
+	Installation de la carte SD
+	</p>
+    <div class="w3-justify">
+	La suite de l'installation s'effectue à partir du Raspberry ou via une connexion SSH.
+	</div>
+    <div class="w3-justify">
+	- Installez la carte SD dans le lecteur du Raspberry cible.
+	</div>
+    <div class="w3-justify">
+	- Démarrez le Raspberry.
+	</div>
+	
+	<p class="w3-justify">
+	La suite de l'installation s'effectue à partir du RPi ou via une connexion SSH.
+	</p>
+	<p class="w3-theme-l1">
+	Aide à l'installation via SSH (dans le cas du Rpi zero W par exemple)
+	</p>
+	<p class="w3-justify">
+	Ajoutez un fichier vide nommé <b>SSH</b> (sans extension) dans la partition Boot.
+	</p>
+	<p class="w3-justify">
+	Ajoutez un fichier <b>wpa_supplicant.conf</b> dans la partition Boot avec le contenu suivant (un exemple existe dans le github du projet) :
+	</p>
+		<div class="w3-code jsHigh notranslate w3-justify w3-text-brown">
+		nano wpa_supplicant.conf
+		</div>
+		<div class="w3-code jsHigh notranslate w3-light-grey w3-justify">
+			ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev<br>
+			update_config=1<br>
+			network={<br>
+				ssid="first access point"<br>
+				psk="acces key"<br>
+				key_mgmt=WPA-PSK<br>
+			}
+		</div>
+	<p class="w3-justify">
+		Remplacez <b>first access point</b> par le ssid du réseau wifi de votre box.
+	</p>
+	<p class="w3-justify">
+		Remplacez <b>acces key</b> par le mot de passe wifi de votre box.
+	</p>
+	<p class="w3-justify">
+		Ajoutez autant de groupe network que vous avez de réseau wifi (box, smartphone en point d'accès, etc).
+	</p>
+	<p class="w3-justify">
+		Sauvegardez le fichier.
+	</p>
+	<p class="w3-justify">
+		Le Raspberry sera configuré automatiquement pour démarrer avec le réseau wifi de votre box.
+	</p>
+	<p class="w3-justify">
+		Il suffira ensuite de répérer l'adresse ip du Raspberry pour s'y connecter en SSH
+	</p>
+	
+
+	<p class="w3-theme-l1">
+	Verification et/ou Configuration du Raspberry
+	</p>
+	
+	<div class="w3-panel w3-card w3-light-grey w3-justify"> 
+		Passer la commande :
+		<div class="w3-code jsHigh notranslate">
+			sudo raspi-config
+		</div>
+	</div>	
+	<div class="w3-panel w3-card w3-light-grey w3-justify"> 
+	Allez dans
+	<div class="w3-code jsHigh notranslate">
+	<div>
+	3 - Interface Options
+	</div>
+	<div style="margin-left:30px">
+		P5 I2C => Oui<br>
+	</div>
+	<div style="margin-left:30px">
+		P6 Serial Port => shell:non / serial port hardware:oui<br>
+	</div>
+	</div>
+	</div>
+	
+	<div class="w3-panel w3-card w3-light-grey w3-justify"> 
+	A la fin de la configuration faire un reboot
+		<div class="w3-code jsHigh notranslate">
+			sudo reboot
+		</div>
+	</div>	
+
+	<div class="w3-panel w3-card w3-light-grey w3-justify"> 
+	Installer les outils I2C pour Python (déjà installé sur les versions récentes)
+	</div>
+	<div class="w3-panel w3-card w3-light-grey w3-justify"> 
+	Mettre à jour le système (s'il y a longtemps que ça n'a pas été fait)
+		<div class="w3-code jsHigh notranslate">
+		sudo apt update<br>
+		sudo apt upgrade -y
+		</div>
+	</div>	
+
+	<div class="w3-panel w3-card w3-light-grey w3-justify"> 
+	Une fois le système mis à jour, lancez l’installation des outils permettant de communiquer avec les périphériques i2c en Python (python-smbus).
+		<div class="w3-code jsHigh notranslate">
+		sudo apt-get install -y python-smbus
+		</div>
+	</div>	
+
+	<div class="w3-panel w3-card w3-light-grey w3-justify"> 
+	Les outils de diagnostic (i2c-tools) sont déjà installés.
+	Si ce n'est pas le cas,
+		<div class="w3-code jsHigh notranslate">
+		sudo apt-get install -y i2c-tools
+		</div>
+	</div>	
+
+	<div class="w3-panel w3-card w3-light-grey w3-justify"> 
+	L’installation terminée, on peut déjà tester si les modules sont bien chargés<br>
+	
+	Vérifier l’adresse du périphérique avec i2cdetect
+		<div class="w3-code jsHigh notranslate">
+		sudo i2cdetect -y 1 # pour les anciens modèles : sudo i2cdetect -y 0
+		</div>
+	</div>	
+
+	<div class="w3-panel w3-card w3-light-grey w3-justify"> 
+	Si pip n'est pas installé, l'installer en passant les commandes
+		<div class="w3-code jsHigh notranslate">
+		sudo apt-get update<br>
+		sudo apt-get install python-pip
+		</div>
+	</div>	
+
+	<div class="w3-panel w3-card w3-light-grey w3-justify">
+	Si besoin, installer l'interface série
+		<div class="w3-code jsHigh notranslate">
+		sudo pip install pyserial<br>
+		sudo pip install gpio
+		</div>
+	</div>	
+
+	<p class="w3-justify">
+	Ensuite, il est nécessaire d'installer un serveur web pour avoir accès aux outils de visualisation des sessions et de la gestion des circuits.
+	Il est également nécessaire pour l'affichage du tableau de bord sur un écran LCD HDMI (minimum 3.5" 480x360 recommandé).	
+	</p>
+	
+	<p class="w3-theme-l1">
+	Installation de MyChronoGPS sur le Raspberry Pi
+	</p>
+
+	<div class="w3-panel w3-card w3-light-grey w3-justify">
+		A partir du dossier <b>/home/pi</b> lancez les commandes suivantes :
+		<div class="w3-code jsHigh notranslate">
+		sudo rm -rf MyChronoGPS<br>
+		git clone https://github.com/jfk93-fr/MyChronoGPS.git<br>
+		chmod -R 755 MyChronoGPS<br>
+		cd MyChronoGPS/
+		</div>
+	</div>	
+
+	<div class="w3-panel w3-card w3-light-grey w3-justify">
+	La procédure d'installation proprement dite de <b>MyChronoGPS</b> s'effectue par la commande :
+		<div class="w3-code jsHigh notranslate">
+		sh MyChronoGPS.sh
+		</div>
+	</div>
+	
+	<p class="w3-justify">
+	Plusieurs questions sont posées.
+	</p>
+	<p class="w3-justify">
+	Si <b>Lighttpd</b> n'est pas installé, la procédure d'installation demande si on doit l'installer, c'est préférable, aussi répondre <b>Y</b>
+	</p>
+
+	<p class="w3-justify">
+	La procédure d'installation demande si on a une clé API pour <b>GoogleMaps</b> et si on veut l'utiliser.<br>
+	Si oui, le fichier <b>key.js</b> est édité et il faut remplacer '<b>Your_API_Key</b>' par la valeur de votre clé.
+	</p>
+
+	<div class="w3-panel w3-card w3-light-grey w3-justify">
+	A la fin de l'installation, redémarrer le système
+		<div class="w3-code jsHigh notranslate">
+		sudo reboot
+		</div>
+	</div>
+	
+	<p class="w3-theme-l1">
+	Installation physique du GPS
+	</p>
+
+	<p class="w3-justify">
+	<div class="w3-panel w3-card w3-light-grey w3-justify">
+	Le fichier paramètre de MyChronoGPS est configuré pour un GPS relié au Raspberry via une liaison série.<br>
+	Si c'est le cas, passez la commande :
+		<div class="w3-code jsHigh notranslate">
+		cat /dev/serial0
+		</div>
+	</div>
+	</p>
+
+	<p class="w3-justify">
+	les trames envoyées par le GPS doivent s'afficher sur la console.
+	</p>
+
+	<p class="w3-justify">
+	Si le GPS est relié via le port USB, rechercher le fichier associé.<br>
+	Le fichier devrait avoir un nom sous la forme /etc/ttyACM*<br>
+	<div class="w3-panel w3-card w3-light-grey w3-justify">
+	Pour afficher le nom, passez la commande<br>
+		<div class="w3-code jsHigh notranslate w3-justify">
+		ls /dev/ttyA*
+		</div>
+	</div>
+	</p>
+
+	<p class="w3-justify">
+	exemple :
+		<div class="w3-code jsHigh notranslate w3-justify">
+		pi@raspberrypi:~ $ ls /dev/ttyA*<br>
+		/dev/ttyACM0  /dev/ttyAMA0<br>
+		pi@raspberrypi:~ $
+		</div>
+	</p>
+
+	<p class="w3-justify">
+	Il faut essayer de trouver le bon fichier en passant la commande :
+		<div class="w3-code jsHigh notranslate w3-justify">
+		pi@raspberrypi:~ $ cat /dev/ttyAMA0<br>
+		pi@raspberrypi:~ $
+		</div>
+	</p>
+
+	<p class="w3-justify">
+	Il n'y a rien en retour, essayez avec :
+		<div class="w3-code jsHigh notranslate w3-justify">
+		pi@raspberrypi:~ $ cat /dev/ttyACM0<br>
+		$GNTXT,01,01,02,u-blox AG - www.u-blox.com*4E<br>
+		<br>
+		$GNTXT,01,01,02,HW UBX-M8030 00080000*60<br>
+		<br>
+		$GNTXT,01,01,02,ROM CORE 3.01 (107888)*2B
+		</div>
+	</p>
+
+	<p class="w3-justify">
+	Ce sont les trames NMEA envoyées par le GPS /dev/ttyACM0
+	</p>
+
+	<p class="w3-justify">
+	Mettre à jour le fichier paramètre de MyChronoGPS en passant la commande
+		<div class="w3-code jsHigh notranslate w3-justify">
+		sudo nano /home/pi/MyChronoGPS/parms/params.json
+		</div>
+	</p>
+	<p class="w3-justify">
+	Rechercher les lignes contenant "GPSPort"
+		<div class="w3-code jsHigh notranslate w3-justify">
+		"#GPSPort": "port rattaché au GPS (defaut; /dev/serial0)",<br>
+		"GPSPort": "/dev/serial0",<br>
+		"GPSPort": "/dev/ttyACM1",<br>
+		"GPSPort": "/dev/ttyACM0",
+		</div>
+	</p>
+	<p class="w3-justify">
+	C'est la dernière ligne qui est prise en compte.<br>
+	Dans l'exemple ci-dessus, le GPS est associé au fichier /dev/ttyACM0
+	</p>
+	
+	<p class="w3-theme-l1">
+	Installation afficheurs OLED
+	</p>
+	
+	<p class="w3-justify">
+	<div class="w3-panel w3-card w3-light-grey w3-justify">
+	installez Adafruit_GPIO :
+		<div class="w3-code jsHigh notranslate">
+		sudo  pip  install Adafruit_GPIO
+		</div>
+	</div>
+	</p>
+	
+	<p class="w3-justify">
+	<div class="w3-panel w3-card w3-light-grey w3-justify">
+	installez Adafruit_SSD1306 :
+		<div class="w3-code jsHigh notranslate">
+		sudo  pip  install Adafruit_SSD1306
+		</div>
+	</div>
+	</p>
+	
+	<p class="w3-justify">
+	<div class="w3-panel w3-card w3-light-grey w3-justify">
+	installez mscorefonts :
+		<div class="w3-code jsHigh notranslate">
+		sudo  apt-get install ttf-mscorefonts-installer
+		</div>
+	</div>
+	</p>
+	
+	<p class="w3-theme-l1">
+	Installation écran TFT LCD Touch Screen
+	</p>
+	
+	<p class="w3-justify">
+	<div class="w3-panel w3-card w3-light-grey w3-justify">
+	Configurez l’écran 3.5 inch TFT LCD Touch Screen avec le Raspberry Pi en passant les commandes :
+		<div class="w3-code jsHigh notranslate">
+		sudo rm -rf LCD-show<br>
+		git clone https://github.com/goodtft/LCD-show.git<br>
+		chmod -R 755 LCD-show<br>
+		cd LCD-show/<br>
+		sudo ./LCD35-show
+		</div>
+	Après redémarrage du Raspberry Pi vous devriez voir apparaitre le desktop de Raspbian sur votre petit écran.
+	</div>
+	</p>
+
+	<p class="w3-justify">
+	<div class="w3-panel w3-card w3-light-grey w3-justify">
+	Pour faire pivoter l'affichage de 180° :
+		<div class="w3-code jsHigh notranslate">
+		cd LCD-show/</b>
+		sudo ./rotate.sh 180
+		</div>
+	Après redémarrage du Raspberry Pi l'affiche sur l'écran a pivoté de 180°.
+	</div>
+	</p>
+
+  </div>
+</body>
+</html>
