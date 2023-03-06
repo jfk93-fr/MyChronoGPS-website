@@ -328,30 +328,31 @@
 
 	<p class="w3-justify">
 	exemple :
-		<div class="w3-code jsHigh notranslate w3-justify">
-		pi@raspberrypi:~ $ ls /dev/ttyA*<br>
-		/dev/ttyACM0  /dev/ttyAMA0<br>
-		pi@raspberrypi:~ $
+		<div class="w3-code jsHigh notranslate w3-theme-dark w3-justify">
+		<span class="w3-text-green">pi@raspberrypi</span><span class="w3-text-white">:</span><span class="w3-text-blue">~ $</span>
+		<span class="w3-text-white">ls /dev/ttyA*</span><br>
+		<span class="w3-text-yellow">/dev/ttyACM0  /dev/ttyAMA0</span><br>
+		<span class="w3-text-green">pi@raspberrypi</span><span class="w3-text-white">:</span><span class="w3-text-blue">~ $</span>
 		</div>
 	</p>
 
 	<p class="w3-justify">
 	Il faut essayer de trouver le bon fichier en passant la commande :
-		<div class="w3-code jsHigh notranslate w3-justify">
-		pi@raspberrypi:~ $ cat /dev/ttyAMA0<br>
-		pi@raspberrypi:~ $
+		<div class="w3-code jsHigh notranslate w3-theme-dark w3-justify">
+		<span class="w3-text-green">pi@raspberrypi</span><span class="w3-text-white">:</span><span class="w3-text-blue">~ $</span>
+		<span class="w3-text-white">cat /dev/ttyAMA0</span><br>
+		<span class="w3-text-green">pi@raspberrypi</span><span class="w3-text-white">:</span><span class="w3-text-blue">~ $</span>
 		</div>
 	</p>
 
 	<p class="w3-justify">
 	Il n'y a rien en retour, essayez avec :
-		<div class="w3-code jsHigh notranslate w3-justify">
-		pi@raspberrypi:~ $ cat /dev/ttyACM0<br>
-		$GNTXT,01,01,02,u-blox AG - www.u-blox.com*4E<br>
-		<br>
-		$GNTXT,01,01,02,HW UBX-M8030 00080000*60<br>
-		<br>
-		$GNTXT,01,01,02,ROM CORE 3.01 (107888)*2B
+		<div class="w3-code jsHigh notranslate w3-theme-dark w3-justify">
+		<span class="w3-text-green">pi@raspberrypi</span><span class="w3-text-white">:</span><span class="w3-text-blue">~ $</span>
+		<span class="w3-text-white">cat /dev/ttyACM0</span><br>
+		<span class="w3-text-white">$GNTXT,01,01,02,u-blox AG - www.u-blox.com*4E</span><br>
+		<span class="w3-text-white">$GNTXT,01,01,02,HW UBX-M8030 00080000*60</span><br>
+		<span class="w3-text-white">$GNTXT,01,01,02,ROM CORE 3.01 (107888)*2B</span><br>
 		</div>
 	</p>
 
@@ -435,7 +436,112 @@
 		cd LCD-show/</b>
 		sudo ./rotate.sh 180
 		</div>
-	Après redémarrage du Raspberry Pi l'affiche sur l'écran a pivoté de 180°.
+	Après redémarrage du Raspberry Pi, l'affichage de l'écran a pivoté de 180°.
+	</div>
+	</p>
+	
+	<p class="w3-theme-l1">
+	Lancement de MyChronoGPS au démarrage du Raspberry Pi
+	</p>
+
+	<p class="w3-justify">
+	<div class="w3-panel w3-card w3-light-grey w3-justify">
+	Editer le fichier /etc/rc.local :
+		<div class="w3-code jsHigh notranslate">
+		sudo nano /etc/rc.local
+		</div>
+	Avant la ligne exit 0 insérer la commande pour démarrer MyChronoGPS au démarrage du Raspberry Pi :
+		<div class="w3-code jsHigh notranslate">
+		sh /home/pi/MyChronoGPS/start_gps.sh
+		</div>
+	Si nom utilisateur # pi => remplacer /pi par /nom utilisateur
+	</div>
+	</p>
+	
+	<p class="w3-theme-l1">
+	Lancement du tableau de bord au démarrage du Raspberry Pi
+	</p>
+
+	<p class="w3-justify">
+	<div class="w3-panel w3-card w3-light-grey w3-justify">
+	Pour lancer le tableau de bord au démarrage du Raspberry Pi, à partir du répertoire MyChronoGPS, lancez la commande suivante :
+		<div class="w3-code jsHigh notranslate w3-theme-dark">
+		<span class="w3-text-green">pi@raspberrypi</span><span class="w3-text-white">:</span><span class="w3-text-blue">~/MyChronoGPS $</span>
+		<span class="w3-text-white">sh ./CreateAutostart.sh</span>
+		</div>
+	</div>
+	</p>
+	
+	<p class="w3-theme-l1">
+	Utilisation de Google Maps API
+	</p>
+
+	<p class="w3-justify">
+	Par défaut, MyChronoGPS utilise <b>Leaflet</b> pour les outils <b>analyse</b> et <b>design track</b>.<br>
+	Si vous possédez une clé pour l'API <b>Google Maps</b>, vous pouvez demander à MyChronoGPS d'utiliser GoogleMaps à la place de Leaflet.<br>
+	<div class="w3-panel w3-card w3-light-grey w3-justify">
+	Pour çà, dans le répertoire MyChronoGPS, effectuez les actions suivantes :
+		<div class="w3-code jsHigh notranslate w3-theme-dark">
+		<span class="w3-text-green">pi@raspberrypi</span><span class="w3-text-white">:</span><span class="w3-text-blue">~/MyChronoGPS $</span>
+		<span class="w3-text-white">sh MyChronoGPS_GoogleMaps.sh</span>
+		</div>
+	A l'édition du fichier /var/www/html/js/key.js par nano, modifiez la ligne
+		<div class="w3-code jsHigh notranslate">
+		var myKey = 'Your_API_Key';
+		</div>
+	en remplacant le texte <b>Your_API_Key</b> par votre clé API puis sauvez le fichier modifié.
+	</div>
+	</p>
+	
+	<p class="w3-theme-l1">
+	Utilisation de Leaflet API
+	</p>
+	<p class="w3-justify">
+	Il est également possible de revenir à l'utilisation de Leaflet à la place de GoogleMaps.
+	<div class="w3-panel w3-card w3-light-grey w3-justify">
+	Pour çà, dans le répertoire MyChronoGPS, effectuez les actions suivantes :
+		<div class="w3-code jsHigh notranslate w3-theme-dark">
+		<span class="w3-text-green">pi@raspberrypi</span><span class="w3-text-white">:</span><span class="w3-text-blue">~/MyChronoGPS $</span>
+		<span class="w3-text-white">sh MyChronoGPS_Leaflet.sh</span>
+		</div>
+	</div>
+	</p>
+	
+	<p class="w3-theme-l1">
+	Installation de corrections
+	</p>
+	<p class="w3-justify">
+	<div class="w3-panel w3-card w3-light-grey w3-justify">
+	Pour installer les corrections lancez les commandes suivantes :<br>
+	(cette commande permet d'être sur le dossier racine, quelque soit le dossier courant)
+		<div class="w3-code jsHigh notranslate w3-theme-dark">
+		<span class="w3-text-green">pi@raspberrypi</span><span class="w3-text-white">:</span><span class="w3-text-blue">~/MyChronoGPS $</span>
+		<span class="w3-text-white">cd $HOME</span>
+		</div>
+	(les lignes suivantes pour nettoyer un correctif précédent)	
+		<div class="w3-code jsHigh notranslate w3-theme-dark">
+		<span class="w3-text-green">pi@raspberrypi</span><span class="w3-text-white">:</span><span class="w3-text-blue">~ $</span>
+		<span class="w3-text-white">sudo rm -rf temp</span><br>
+		<span class="w3-text-green">pi@raspberrypi</span><span class="w3-text-white">:</span><span class="w3-text-blue">~ $</span>
+		<span class="w3-text-white">mkdir temp</span>
+		</div>
+	(installation du correctif)
+		<div class="w3-code jsHigh notranslate w3-theme-dark">
+		<span class="w3-text-green">pi@raspberrypi</span><span class="w3-text-white">:</span><span class="w3-text-blue">~ $</span>
+		<span class="w3-text-white">cd temp</span><br>
+		<span class="w3-text-green">pi@raspberrypi</span><span class="w3-text-white">:</span><span class="w3-text-blue">~/temp $</span>
+		<span class="w3-text-white">git clone https://github.com/jfk93-fr/MyChronoGPS.git</span><br>
+		<span class="w3-text-green">pi@raspberrypi</span><span class="w3-text-white">:</span><span class="w3-text-blue">~/temp $</span>
+		<span class="w3-text-white">cd MyChronoGPS</span><br>
+		<span class="w3-text-green">pi@raspberrypi</span><span class="w3-text-white">:</span><span class="w3-text-blue">~/temp/MyChronoGPS $</span>
+		<span class="w3-text-white">sh correctif</span><br>
+		</div>
+	En cas de problème, lancez la procédure d'installation de MyChronoGPS
+		<div class="w3-code jsHigh notranslate w3-theme-dark">
+		<span class="w3-text-green">pi@raspberrypi</span><span class="w3-text-white">:</span><span class="w3-text-blue">~/temp/MyChronoGPS $</span>
+		<span class="w3-text-white">cd $HOME/MyChronoGPS</span><br>
+		<span class="w3-text-green">pi@raspberrypi</span><span class="w3-text-white">:</span><span class="w3-text-blue">~/MyChronoGPS $</span>
+		<span class="w3-text-white">sh MyChronoGPS.sh</span>
 	</div>
 	</p>
 
