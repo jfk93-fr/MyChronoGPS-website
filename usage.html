@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!--<link rel="stylesheet" href="./Web-Pi/css/w3.css">-->
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-dark-grey.css">
+	<title>MyChronoGPS</title>
+</head>
+
+<body>
+
+	<!-- Navbar -->
+	<div class="w3-top">
+	<div class="w3-bar w3-black w3-card">
+		<a href="index.html" class="w3-bar-item w3-button w3-padding-large">Accueil</a>
+		<a href="desc.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Description</a>
+		<a href="install.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Installation</a>
+		<a href="#usage" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Utilisation</a>
+	</div>
+	</div>
+
+	<!-- The Use Section -->
+	<div class="w3-container w3-content w3-center w3-padding-64" id="usage">
+		<h2 class="w3-wide w3-theme-d3">UTILISATION</h2>
+		<p class="w3-justify">
+		Pour illustrer l'utilisation de	<b>MyChronoGPS</b>, on a choisi une configuration ne nécessitant aucune fabrication particulière, soudure ou autre.
+		</p>
+		
+		<h3 class="w3-theme-l1">Matériel</h3>
+		<div class="w3-justify">
+		- Raspberry Pi 3B+
+		</div>
+		<div class="w3-justify">
+		- Ecran tactile LCD TFT 3.5 pouces, 480x320, avec boîtier
+		</div>
+		<div class="w3-justify">
+		- GPS USB BEITIAN BN-82U (compatible famille U-BLOX)
+		</div>
+		<div class="w3-justify">
+		- Power Bank USB
+		</div>
+
+		<p style="text-align:left">
+		Exemple de montage pour des tests<br>
+		<img src="img/utilisation-01.jpg" style="width:360px;"></img>
+		</p>
+
+		<p style="text-align:left">
+		A la mise sous tension Linux démarre<br>
+		<img src="img/utilisation-02.jpg" style="width:360px;"></img>
+		</p>
+
+		<p class="w3-justify">
+		Au démarrage, <b>MyChronoGPS</b> recherche un signal GPS sur le port associé, ici : <b>/dev/ttyACM0</b>.<br>
+		Si un réseau WiFi est détecté par le RPi, MyChronoGPS indique l'adresse IP où on peut communiquer avec lui.<br>
+		<img src="img/utilisation-03.jpg" style="width:360px;"></img>
+		</p>
+	</div>
+	<!-- End Use Section -->
+
+</body>
+</html>
