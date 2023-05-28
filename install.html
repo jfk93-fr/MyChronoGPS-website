@@ -16,7 +16,28 @@
 	<div class="w3-bar w3-black w3-card">
 		<a href="index.html" class="w3-bar-item w3-button w3-padding-large">Accueil</a>
 		<a href="desc.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Description</a>
-		<a href="#install" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Installation</a>
+		<div class="w3-dropdown-hover">
+			<a href="#install" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Installation</a>
+			<div class="w3-dropdown-content w3-bar-block w3-card-4">
+			<!--
+				<a href="#install" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Installation</a>
+				<a href="#prepare-SD-card" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Préparation carte SD</a>
+				-->
+				<a href="#actions-list" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Liste actions</a>
+				<a href="#SSH-install" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Installation via SSH</a>
+				<a href="#config-rpi" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Configuration RPi</a>
+				<a href="#install-mychronogps" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Installation MyChronoGPS</a>
+				<a href="#install-gps" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Installation GPS</a>
+				<a href="#install-oled" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Installation écran OLED</a>
+				<a href="#install-tftlcd" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Installation écran TFT LCD</a>
+				<a href="#install-te-paper" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Installation écran Touch e-Paper</a>
+				<a href="#start-mychronogps" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Lancement MyChronoGPS au démarrage</a>
+				<a href="#start-dashboard" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Lancement tableau de bord au démarrage</a>
+				<a href="#googlemaps" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Utilisation GoogleMaps</a>
+				<a href="#leaflet" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Utilisation Leaflet</a>
+				<a href="#install-corr" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Installation Corrections</a>
+			</div>
+		</div>
 		<a href="usage.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Utilisation</a>
 	</div>
 	</div>
@@ -25,7 +46,7 @@
   <div class="w3-container w3-content w3-center w3-padding-64" id="install">
     <h2 class="w3-wide w3-theme-d3">INSTALLATION</h2>
 
-	<p class="w3-theme-l1">
+	<p class="w3-theme-l1" id="prepare-SD-card">
 	Préparation de la carte SD
 	</p>
     <p class="w3-justify">
@@ -38,7 +59,7 @@
 	A partir d'un Raspberry, Pi Imager est déjà installé.
 	</p>
 
-	<div class="w3-theme-l1">
+	<div class="w3-theme-l1" id="actions-list">
 	Liste des actions
 	</div>
     <div class="w3-justify">
@@ -81,7 +102,7 @@
 	- Retirez la carte SD et installez-là dans le Raspberry cible.
 	</div>
 
-	<p class="w3-theme-l1">
+	<p class="w3-theme-l1" id="SD-card">
 	Installation de la carte SD
 	</p>
     <div class="w3-justify">
@@ -97,7 +118,7 @@
 	<p class="w3-justify">
 	La suite de l'installation s'effectue à partir du RPi ou via une connexion SSH.
 	</p>
-	<p class="w3-theme-l1">
+	<p class="w3-theme-l1" id="SSH-install">
 	Aide à l'installation via SSH (dans le cas du Rpi zero W par exemple)
 	</p>
 	<p class="w3-justify">
@@ -137,6 +158,7 @@
 		Il suffira ensuite de répérer l'adresse ip du Raspberry pour s'y connecter en SSH
 	</p>
 	
+	<div id="config-rpi"></div>
 
 	<p class="w3-theme-l1">
 	Verification et/ou Configuration du Raspberry
@@ -233,6 +255,9 @@
 	Il est également nécessaire pour l'affichage du tableau de bord sur un écran LCD HDMI (minimum 3.5" 480x360 recommandé).	
 	</p>
 	
+	<div id="install-mychronogps">
+	</div>
+	
 	<p class="w3-theme-l1">
 	Installation de MyChronoGPS sur le Raspberry Pi
 	</p>
@@ -273,7 +298,7 @@
 		</div>
 	</div>
 	
-	<p class="w3-theme-l1">
+	<p class="w3-theme-l1" id="install-gps">
 	Installation physique du GPS
 	</p>
 
@@ -356,7 +381,7 @@
 	Dans l'exemple ci-dessus, le GPS est associé au fichier /dev/ttyACM0
 	</p>
 	
-	<p class="w3-theme-l1">
+	<p class="w3-theme-l1" id="install-oled">
 	Installation afficheurs OLED
 	</p>
 	
@@ -387,7 +412,7 @@
 	</div>
 	</p>
 	
-	<p class="w3-theme-l1">
+	<p class="w3-theme-l1" id="install-tftlcd">
 	Installation écran TFT LCD Touch Screen
 	</p>
 	
@@ -416,7 +441,7 @@
 	</div>
 	</p>
 
-	<p class="w3-theme-l1">
+	<p class="w3-theme-l1" id="install-te-paper">
 	Installation afficheurs e-Paper (Waveshare 2.13inch_Touch_e-Paper_HAT)
 	</p>
 	
@@ -457,7 +482,7 @@
 	</div>
 	</p>
 	
-	<p class="w3-theme-l1">
+	<p class="w3-theme-l1" id="start-mychronogps">
 	Lancement de MyChronoGPS au démarrage du Raspberry Pi
 	</p>
 
@@ -475,7 +500,7 @@
 	</div>
 	</p>
 	
-	<p class="w3-theme-l1">
+	<p class="w3-theme-l1" id="start-dashboard">
 	Lancement du tableau de bord au démarrage du Raspberry Pi
 	</p>
 
@@ -489,7 +514,7 @@
 	</div>
 	</p>
 	
-	<p class="w3-theme-l1">
+	<p class="w3-theme-l1" id="googlemaps">
 	Utilisation de Google Maps API
 	</p>
 
@@ -510,7 +535,7 @@
 	</div>
 	</p>
 	
-	<p class="w3-theme-l1">
+	<p class="w3-theme-l1" id="leaflet">
 	Utilisation de Leaflet API
 	</p>
 	<p class="w3-justify">
@@ -524,7 +549,7 @@
 	</div>
 	</p>
 	
-	<p class="w3-theme-l1">
+	<p class="w3-theme-l1" id="install-corr">
 	Installation de corrections
 	</p>
 	<p class="w3-justify">
