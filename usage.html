@@ -17,7 +17,16 @@
 		<a href="index.html" class="w3-bar-item w3-button w3-padding-large">Accueil</a>
 		<a href="desc.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Description</a>
 		<a href="install.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Installation</a>
-		<a href="#usage" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Utilisation</a>
+		<div class="w3-dropdown-hover">
+			<a href="#usage" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Utilisation</a>
+				<div class="w3-dropdown-content w3-bar-block w3-card-4">
+					<a href="#equipment" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Matériel</a>
+					<a href="#dashboard" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Tableau de bord</a>
+					<a href="#mainmenu" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Menu principal</a>
+					<a href="#tracks" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Circuits</a>
+					<a href="#design" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Tracé</a>
+				</div>
+		</div>
 	</div>
 	</div>
 
@@ -28,6 +37,7 @@
 		Pour illustrer l'utilisation de	<b>MyChronoGPS</b>, on a choisi une configuration ne nécessitant aucune fabrication particulière, soudure ou autre.
 		</p>
 		
+		<div  id="equipment"></div>
 		<h3 class="w3-theme-l1">Matériel</h3>
 		<div class="w3-justify">
 		- Raspberry Pi 3B+
@@ -57,6 +67,145 @@
 		Si un réseau WiFi est détecté par le RPi, MyChronoGPS indique l'adresse IP où on peut communiquer avec lui.<br>
 		<img src="img/utilisation-03.jpg" style="width:360px;"></img>
 		</p>
+
+		<div class="w3-theme-l1" id="dashboard">
+		Ecran principal
+		</div>
+		<p class="w3-justify">
+		Lorsque <b>MyChronoGPS</b> est fonctionnement, le tableau de bord est affiché.<br>
+		Le chronomètre démarre automatiquement lorsque la ligne de départ/arrivée est franchie.<br>
+		Pour çà, MyChronoGPS</b> examine la base de données des circuits.<br>
+		Dans l'exemple ci-dessous, c'est le circuit d'Alcarras en Espagne qui a été détecté.<br>
+		<br>
+		<!--<img src="img/utilisation-05-dash-01.jpg" style="width:360px;"></img>-->
+		<img src="img/utilisation-05-dash-01.jpg" style="width:940px;"></img>
+		</p>
+
+		<br>
+		<p class="w3-justify">
+		Au franchissement de la ligne de départ/arrivée, le temps du tour est indiqué mais avant çà, s'il y a lieu, <b>MyChronoGPS</b>
+		indique s'il y a un gain ou une perte de temps par rapport au tour précédent.<br>
+		<br>
+		<img src="img/utilisation-05-dash-03.jpg" style="width:940px;"></img>
+		</p>
+
+		<br>
+		<p class="w3-justify">
+		Si des lignes intermédiaires ont été dessinées pour le circuit, <b>MyChronoGPS</b>
+		indique le temps chronométré du secteur.<br>
+		<br>
+		<img src="img/utilisation-05-dash-02.jpg" style="width:940px;"></img>
+		</p>
+
+		<div class="w3-theme-l1" id="mainmenu">
+		Menu principal des applications
+		</div>
+		<p class="w3-justify">
+		Un menu permet de gérer toutes les données utilisées par <b>MyChronoGPS</b>.<br>
+		<br>
+		<img src="img/utilisation-06-menu-01.jpg" style="width:940px;"></img>
+		</p>
+		
+		<div class="w3-theme-l1">
+		Liste des différentes applications du menu:
+		</div>
+		<p class="w3-justify">
+		<b>Tableau de bord</b>: Affiche en temps réel l'état du GPS et le chronomètre.
+		</p>
+		<p class="w3-justify">
+		<b>Sessions</b>: application pour examiner les sessions de roulage déjà effectuées et stockées dans <b>MyChronoGPS</b>.
+		</p>
+		<p class="w3-justify">
+		<b>Circuits</b>: application de gestion des tracés des circuits stockés dans <b>MyChronoGPS</b>.
+		<br>Les circuits peuvent être modifiés, ajoutés mais pas supprimés par l'application (pour l'instant).
+		</p>
+
+		<div class="w3-theme-l1" id="tracks">
+		Application de gestion des circuits
+		</div>
+		<p class="w3-justify">
+		Au démarrage de l'application de gestion des tracés, la carte de France est affichée.
+		<br>Tous les circuits présents dans la base de donnée de <b>MyChronoGPS</b> sont matérialisés par des drapeaux à damiers.
+		<br>
+		<img src="img/utilisation-07-tracks-01.jpg" style="width:940px;"></img>
+		</p>
+		<br>
+		
+		<div class="w3-theme-l1">
+		Création d'un circuit:
+		</div>
+		<p class="w3-justify">
+		Pour créer un circuit, il faut faire un clic gauche à l'endroit où on veut créer le circuit.<br>
+		Un clic droit permet de copier les coordonnées GPS du point dans le presse papier (voir exemple).<br>
+		<br>
+		<img src="img/utilisation-07-tracks-02.jpg" style="width:940px;"></img>
+		</p>
+		<br>
+		<p class="w3-justify">
+		Une boite de dialogue va s'ouvrir pour confirmer la création du circuit à l'endroit indiqué.<br>
+		Ensuite, <b>MyChronoGPS</b> affiche l'endroit où v être créé le circuit.<br>
+		Il suffit ensuite de cliquer sur "Nouveau Circuit" pour passer à l'outil de dessin.
+		<br>
+		<img src="img/utilisation-07-tracks-03.jpg" style="width:940px;"></img>
+		</p>
+
+		<div class="w3-theme-l1" id="design">
+		Outil de dessin des circuits
+		</div>
+		<p class="w3-justify">
+		L'outil de dessin s'ouvre à l'endroit du circuit.<br>
+		<br>
+		<img src="img/utilisation-08-design-01.jpg" style="width:940px;"></img>
+		</p>
+		<br>
+		<p class="w3-justify">
+		Seules les lignes à franchir sont dessinées sur le circuit, la ligne de départ/arrivée, les lignes intermédiaires
+		et les lignes entrée/sortie Pitlane.<br>
+		A minima, seule la ligne de départ/arrivée est requise pour que le circuit soit utilisable par <b>MyChronoGPS</b>.<br>
+		<br>
+		Pour tracé le segment de droite correspondant à une ligne, il faut appuyer sur le bouton correspondant.<br>
+		Si la ligne existe, <b>MyChronoGPS</b> se cale dessus, sinon un groupe de 4 marqueurs est dessiné au milieu de la carte.<br>
+		Tous les marqueurs sont déplaçables et permettent d'ajuster finement le tracé des lignes.<br>
+		Le marqueur A indique le milieu de la ligne à définir. Lorsqu'on le déplace, c'est l'ensemble des marqueurs qui bougent.<br>
+		Le marqueur 2 indique le bord de la ligne. Lorsqu'on le déplace, le marqueur opposé (le carré) bouge de telle sorte
+		que les 2 points soient opposés par le marqueur A qui sert d'axe.
+		Ainsi, on peut ajuster la largeur de la ligne et son orientation<br>
+		Le marqueur étoile sert à orienter la ligne plus finement. Lorsqu'on le déplace, la ligne (point 2 + carré) se déplace
+		de telle sorte que la ligne A-étoile soit toujours perpendiculaire à la ligne en cours de traçage (point 2 + carré).<br>
+		Le carré permet de déplacer l'ensemble de la carte.<br>
+		<br>
+		<img src="img/utilisation-08-design-02.jpg" style="width:940px;"></img>
+		</p>
+		<p class="w3-justify">
+		Avant de sauvegarder le travail, il faut indiquer le nom du circuit, en effet, "Nom Circuit" est un nom réservé,
+		si on ne sauvegarde pas le travail en indiquant un nom de circuit, celui-ci risque d'être perdu s'il y a à nouveau une création de tracé.<br>
+		Une fois sauvé, si on revient vers la base des circuits, celui-ci apparait dans la liste comme dans l'exemple ci-dessous.<br>
+		<br>
+		<img src="img/utilisation-07-tracks-04.jpg" style="width:940px;"></img>
+		</p>
+		<p class="w3-justify">
+		Lorsqu'on affiche un tracé existant, les marqueurs d'aide au dessin ont disparu, il reste seulement les marqueurs d'extrémités de ligne.<br>
+		Dans l'exemple ci-dessous, seule la ligne de départ/arrivée a été définie.<br>
+		On voit les marqueurs 1 et 2 et la ligne tracée en noir.<br>
+		Toujours dans l'exemple, le but du dessin est d'ajouter 2 lignes intermédiaires et les 2 lignes de la voie des stands.<br>
+		Celles-ci sont visibles avec leurs 4 marqueurs de dessin A, 2, carré, étoile.<br>
+		<br>
+		<img src="img/utilisation-08-design-03.jpg" style="width:940px;"></img>
+		</p>
+		<p class="w3-justify">
+		Après sauvegarde du circuit, lorsqu'on rappelle l'outil de dessin, on constate que les marqueurs A, carré et étoile ont disparu.<br>
+		Chaque ligne apparait avec ses 2 marqueurs d'extrémités uniquement.
+		Couleur des lignes:
+		<table>
+		<tr><td class="w3-left">départ/arrivée</td><td>=</td><td class="w3-left">NOIR</td></tr>
+		<tr><td class="w3-left">intermédiaire </td><td>=</td><td class="w3-left">JAUNE</td></tr>
+		<tr><td class="w3-left">entrée pitlane</td><td>=</td><td class="w3-left">ROUGE</td></tr>
+		<tr><td class="w3-left">sortie pitlane</td><td>=</td><td class="w3-left">VERT</td></tr>
+		</table>
+		<br>
+		<img src="img/utilisation-08-design-04.jpg" style="width:940px;"></img>
+		</p>
+
 	</div>
 	<!-- End Use Section -->
 
