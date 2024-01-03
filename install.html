@@ -31,6 +31,7 @@
 				<a href="#install-oled" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Installation écran OLED</a>
 				<a href="#install-tftlcd" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Installation écran TFT LCD</a>
 				<a href="#install-te-paper" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Installation écran Touch e-Paper</a>
+				<a href="#install-nextion" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Installation écran Nextion</a>
 				<a href="#start-mychronogps" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Lancement MyChronoGPS au démarrage</a>
 				<a href="#start-dashboard" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Lancement tableau de bord au démarrage</a>
 				<a href="#googlemaps" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Utilisation GoogleMaps</a>
@@ -408,6 +409,25 @@
 		</div>
 	</div>
 	</p>
+
+	<p class="w3-justify">
+	Mettre à jour le fichier paramètre de MyChronoGPS en passant la commande
+		<div class="w3-code jsHigh notranslate w3-justify">
+		sudo nano /home/pi/MyChronoGPS/parms/params.json
+		</div>
+	</p>
+	<p class="w3-justify">
+	Rechercher les lignes contenant "ScreenCmd"
+		<div class="w3-code jsHigh notranslate w3-justify">
+		"#ScreenCmd": "program name associated with display 1",<br>
+		"#ScreenCmd_": "pgm dispos: MyChronoGPS_OLED MyChronoGPS_LCD MyChronoGPS_TE2in13V3 MyChronoGPS_Nextion_Display MyChronoGPS_Nextion_Dashboard",<br>
+		"ScreenCmd": "MyChronoGPS_Dummy",
+		</div>
+	</p>
+	<p class="w3-justify">
+	C'est la dernière ligne qui est prise en compte.<br>
+	Remplacer "MyChronoGPS_Dummy" par "MyChronoGPS_OLED"
+	</p>
 	
 	<p class="w3-theme-l1" id="install-tftlcd">
 	Installation écran TFT LCD Touch Screen
@@ -477,6 +497,64 @@
 		pip install smbus2
 		</div>
 	</div>
+	</p>
+
+	<p class="w3-justify">
+	Mettre à jour le fichier paramètre de MyChronoGPS en passant la commande
+		<div class="w3-code jsHigh notranslate w3-justify">
+		sudo nano /home/pi/MyChronoGPS/parms/params.json
+		</div>
+	</p>
+	<p class="w3-justify">
+	Rechercher les lignes contenant "ScreenCmd"
+		<div class="w3-code jsHigh notranslate w3-justify">
+		"#ScreenCmd": "program name associated with display 1",<br>
+		"#ScreenCmd_": "pgm dispos: MyChronoGPS_OLED MyChronoGPS_LCD MyChronoGPS_TE2in13V3 MyChronoGPS_Nextion_Display MyChronoGPS_Nextion_Dashboard",<br>
+		"ScreenCmd": "MyChronoGPS_Dummy",
+		</div>
+	</p>
+	<p class="w3-justify">
+	C'est la dernière ligne qui est prise en compte.<br>
+	Remplacer "MyChronoGPS_Dummy" par "MyChronoGPS_TE2in13V3"
+	</p>
+
+	<p class="w3-theme-l1" id="install-nextion">
+	Installation afficheurs Nextion
+	</p>
+
+	<p class="w3-justify">
+	Dans le dossier Nextion, prendre le fichier MyChronoGPS_Nextion_Display.HMI générique ou correspondant au type d'écran utilisé et l'ouvrir dans Nextion Editor
+	</p>
+	<p class="w3-justify">
+	A partir de Nextion Editor, transférer (upload) le fichier MyChronoGPS_Nextion_Display.HMI vers l'écran Nextion connecté.
+	</p>
+
+	<p class="w3-justify">
+	Mettre à jour le fichier paramètre de MyChronoGPS en passant la commande
+		<div class="w3-code jsHigh notranslate w3-justify">
+		sudo nano /home/pi/MyChronoGPS/parms/params.json
+		</div>
+	</p>
+	<p class="w3-justify">
+	Rechercher les lignes contenant "ScreenCmd"
+		<div class="w3-code jsHigh notranslate w3-justify">
+		"#ScreenCmd": "program name associated with display 1",<br>
+		"#ScreenCmd_": "pgm dispos: MyChronoGPS_OLED MyChronoGPS_LCD MyChronoGPS_TE2in13V3 MyChronoGPS_Nextion_Display MyChronoGPS_Nextion_Dashboard",<br>
+		"ScreenCmd": "MyChronoGPS_Dummy",
+		</div>
+	</p>
+	<p class="w3-justify">
+	C'est la dernière ligne qui est prise en compte.<br>
+	Remplacer "MyChronoGPS_Dummy" par "MyChronoGPS_Nextion_Dashboard" ou par "MyChronoGPS_Nextion_Display"
+	</p>
+	<p class="w3-justify">
+	Le programme "MyChronoGPS_Nextion_Display affiche des données similaires aux autres programmes d'afficheurs.
+	</p>
+	<p class="w3-justify">
+	Le programme "MyChronoGPS_Nextion_Dashboard affiche un tableau de bord.
+	</p>
+	<p class="w3-justify">
+	Le fichier .HMI peut-être personnalisé, juste repérer les variables qui sont envoyées vers l'écran
 	</p>
 	
 	<p class="w3-theme-l1" id="start-mychronogps">
