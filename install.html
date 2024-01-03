@@ -548,14 +548,37 @@
 	Remplacer "MyChronoGPS_Dummy" par "MyChronoGPS_Nextion_Dashboard" ou par "MyChronoGPS_Nextion_Display"
 	</p>
 	<p class="w3-justify">
-	Le programme "MyChronoGPS_Nextion_Display affiche des données similaires aux autres programmes d'afficheurs.
+	Le programme "MyChronoGPS_Nextion_Display" affiche des données similaires aux autres programmes d'afficheurs.
 	</p>
 	<p class="w3-justify">
-	Le programme "MyChronoGPS_Nextion_Dashboard affiche un tableau de bord.
+	Le programme "MyChronoGPS_Nextion_Dashboard" affiche un tableau de bord.
 	</p>
 	<p class="w3-justify">
-	Le fichier .HMI peut-être personnalisé, juste repérer les variables qui sont envoyées vers l'écran
+	Le fichier .HMI peut-être personnalisé, juste repérer les variables qui sont envoyées vers l'écran :
 	</p>
+	<div class="w3-panel w3-card w3-light-grey w3-justify">
+	<p>page 0 (page2L) : variables disposées sur 2 lignes de l'écran</p>
+	<p>L1 : contenu de la ligne 1</p>
+	<p>L2 : contenu de la ligne 2</p>
+	<p>page 1 (page3L) : variables disposées sur 3 lignes de l'écran</p>
+	<p>L3 : contenu de la ligne 3</p>
+	<p>page 2 (page3L) : variables disposées sur 4 lignes de l'écran</p>
+	<p>L4 : contenu de la ligne 4</p>
+	<p>page 3 (pageD1) : variables disposées sur le tableau de bord</p>
+	<p>nbsats (progress bar) : nombre de satellites visibles par le GPS</p>
+	<p>date : date envoyée par le GPS</p>
+	<p>time : heure envoyée par le GPS</p>
+	<p>ip : adresse de connexion du Raspberry au réseau</p>
+	<p>tempcpu (slider) : température cpu</p>
+	<p>circuit : nom du circuit</p>
+	<p>lap : numéro du tour en cours</p>
+	<p>tt : temps du dernier tour effectué</p>
+	<p>best : meilleur temps</p>
+	<p>tec : temps en cours</p>
+	<p>gain : différence de temps entre le tour effectué et le meilleur tour</p>
+	<p>vitesse : vitesse mesurée par le GPS</p>
+	<p>infos : zone d'information</p>
+	</div>
 	
 	<p class="w3-theme-l1" id="start-mychronogps">
 	Lancement de MyChronoGPS au démarrage du Raspberry Pi
